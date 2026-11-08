@@ -1,0 +1,9 @@
+#write the .gitignore file for a Next.js project and also include the folders that should be ignored
+# Next.js build output
+/.next
+/.agent
+# Dependencies
+/node_modules
+/.pnp   
+/refrence-docs
+/client-docs

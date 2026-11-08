@@ -1,0 +1,29 @@
+import { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: "StarBiz Cosmic Companion",
+    short_name: "StarBiz",
+    description: "Official digital companion app for the StarBiz physical board game. Electronic 1d15 dice, galactic lottery, market appreciation, and StarCards.",
+    start_url: "/",
+    display: "standalone",
+    background_color: "#04040c",
+    theme_color: "#070817",
+    orientation: "portrait",
+    categories: ["games", "entertainment", "utilities"],
+    icons: [
+      {
+        src: "/icons/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "maskable",
+      },
+      {
+        src: "/icons/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+    ],
+  };
+}
