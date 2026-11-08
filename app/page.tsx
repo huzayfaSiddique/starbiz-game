@@ -117,23 +117,20 @@ export default function StarBizMainApp() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#070d18] text-slate-100 flex flex-col justify-between selection:bg-[#c89b3c]/30 selection:text-amber-200">
-      {/* Tabletop Background Layer */}
-      <div className="starfield-layer fixed inset-0 pointer-events-none opacity-40" />
-
+    <div className="w-full min-h-screen parchment-bg-texture text-ink-navy flex flex-col justify-between selection:bg-gold-light selection:text-ink-navy">
       {/* TOP TABLE HEADER */}
-      <header className="relative z-20 w-full border-b border-[#c89b3c]/40 bg-[#0a1220]/95 backdrop-blur-md px-3 sm:px-6 py-2.5 shadow-xl">
+      <header className="relative z-20 w-full border-b-2 border-[#E2D5C3] bg-white/90 backdrop-blur-md px-3 sm:px-6 py-2.5 shadow-sm">
         <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-3">
-          {/* Logo */}
+          {/* Logo & Branding */}
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-[#ffd026] shadow-sm animate-pulse" />
-            <h1 className="font-orbitron font-black text-base sm:text-xl text-white tracking-wider">
-              STARBIZ <span className="text-[#ffd026] text-xs font-bold sm:inline hidden">GAME COMPANION</span>
+            <span className="w-3.5 h-3.5 rounded-full bg-[#D4AF37] border border-[#8C6518] shadow-sm animate-pulse" />
+            <h1 className="font-orbitron font-black text-base sm:text-xl text-ink-navy tracking-wider">
+              STARBIZ <span className="text-[#8C6518] text-xs font-bold sm:inline hidden">TABLETOP COMPANION</span>
             </h1>
           </div>
 
-          {/* Quick Galaxy Selector */}
-          <div className="flex items-center gap-1 p-1 rounded-xl bg-black/60 border border-slate-800 text-xs font-orbitron font-bold">
+          {/* Galaxy Selector Strip */}
+          <div className="flex items-center gap-1 p-1 rounded-xl bg-[#FAF5EA] border border-[#E2D5C3] text-xs font-orbitron font-bold">
             {(["ANDROMEDA", "CENTAURUS", "LYNX", "MILKY WAY"] as const).map((gal) => {
               const t = GALAXY_THEMES[gal];
               const isSelected = activeGalaxy === gal;
@@ -142,10 +139,11 @@ export default function StarBizMainApp() {
                   key={gal}
                   onClick={() => setActiveGalaxy(gal)}
                   className={`px-2.5 py-1 rounded-lg transition cursor-pointer text-[10px] sm:text-xs flex items-center gap-1.5 ${
-                    isSelected ? "text-white shadow-sm border" : "text-slate-400 hover:text-slate-200"
+                    isSelected
+                      ? "bg-white text-ink-navy shadow-sm border"
+                      : "text-slate-500 hover:text-ink-navy"
                   }`}
                   style={{
-                    backgroundColor: isSelected ? `${t.color}30` : "transparent",
                     borderColor: isSelected ? t.color : "transparent",
                   }}
                 >
@@ -161,29 +159,29 @@ export default function StarBizMainApp() {
             {/* Properties Repository Trigger */}
             <button
               onClick={() => setIsPropertiesOpen(true)}
-              className="px-3 py-1.5 rounded-xl bg-[#c89b3c]/20 hover:bg-[#c89b3c]/30 border border-[#c89b3c]/60 text-[#ffd026] text-xs font-rajdhani font-bold flex items-center gap-1.5 transition cursor-pointer"
+              className="px-3 py-1.5 rounded-xl gold-badge hover:brightness-105 font-rajdhani font-black text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm"
             >
-              <Building2 className="w-4 h-4 text-[#ffd026]" />
+              <Building2 className="w-4 h-4 text-[#8C6518]" />
               <span className="hidden sm:inline">24 Properties</span>
             </button>
 
             {/* Bank Loans Trigger */}
             <button
               onClick={() => setIsLoansOpen(true)}
-              className="px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-rajdhani font-bold flex items-center gap-1.5 transition cursor-pointer"
+              className="px-2.5 py-1.5 rounded-xl bg-white hover:bg-[#FAF5EA] border border-[#E2D5C3] text-ink-navy text-xs font-rajdhani font-black flex items-center gap-1.5 transition cursor-pointer shadow-sm"
             >
-              <Landmark className="w-3.5 h-3.5 text-cyan-400" />
+              <Landmark className="w-3.5 h-3.5 text-[#1B4965]" />
               <span className="hidden sm:inline">Loans</span>
             </button>
 
             {/* Sound Toggle */}
             <button
               onClick={toggleSound}
-              className="p-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 transition cursor-pointer"
+              className="p-1.5 rounded-xl bg-white hover:bg-[#FAF5EA] border border-[#E2D5C3] text-ink-navy transition cursor-pointer shadow-sm"
               title="Toggle Audio SFX"
               aria-label="Toggle Sound"
             >
-              {soundEnabled ? <Volume2 className="w-4 h-4 text-[#ffd026]" /> : <VolumeX className="w-4 h-4 text-slate-500" />}
+              {soundEnabled ? <Volume2 className="w-4 h-4 text-[#8C6518]" /> : <VolumeX className="w-4 h-4 text-slate-400" />}
             </button>
           </div>
         </div>
@@ -233,14 +231,14 @@ export default function StarBizMainApp() {
         </div>
 
         {/* Bottom Property & Reference Trigger Bar */}
-        <div className="p-3.5 rounded-2xl bg-black/40 border border-slate-800 flex items-center justify-between text-xs font-rajdhani">
-          <div className="flex items-center gap-2 text-slate-300">
-            <Building2 className="w-4 h-4 text-[#ffd026]" />
+        <div className="tabletop-card p-3.5 border-2 border-[#D4AF37]/50 bg-white flex items-center justify-between text-xs font-rajdhani shadow-sm">
+          <div className="flex items-center gap-2 text-ink-navy font-bold">
+            <Building2 className="w-4 h-4 text-[#8C6518]" />
             <span>Digital Real-Estate Engine: 24 Star Sites, Upgrades & Opponent Rent Collections</span>
           </div>
           <button
             onClick={() => setIsPropertiesOpen(true)}
-            className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#c89b3c] to-[#e6b957] hover:from-[#b88a2c] hover:to-[#d6a947] text-black font-orbitron font-black text-xs uppercase tracking-wider transition"
+            className="px-3 py-1.5 rounded-xl gold-button font-orbitron font-black text-xs uppercase tracking-wider transition cursor-pointer"
           >
             Open Properties
           </button>
@@ -251,7 +249,7 @@ export default function StarBizMainApp() {
       </main>
 
       {/* FOOTER */}
-      <footer className="relative z-20 w-full border-t border-slate-800 bg-[#060a12] px-4 py-2.5 text-center text-xs font-rajdhani text-slate-400">
+      <footer className="relative z-20 w-full border-t-2 border-[#E2D5C3] bg-[#F5ECE0] px-4 py-2.5 text-center text-xs font-rajdhani text-slate-600">
         <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <span>StarBiz Official Tabletop Companion • 100% Offline PWA</span>
           <span>Handles All Dice, Cards, Upgrades & Tycoon Star Balances</span>

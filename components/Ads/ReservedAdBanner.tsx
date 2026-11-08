@@ -9,7 +9,7 @@ interface ReservedAdBannerProps {
 }
 
 export default function ReservedAdBanner({ position, className = "" }: ReservedAdBannerProps) {
-  // Enabled by default to show the client reserved slot, dismissible during live test
+  // Enabled by default to demonstrate the client's reserved ad slot, dismissible during live play
   const [isVisible, setIsVisible] = useState(true);
 
   if (!isVisible) {
@@ -19,7 +19,7 @@ export default function ReservedAdBanner({ position, className = "" }: ReservedA
       >
         <button
           onClick={() => setIsVisible(true)}
-          className="text-slate-400 hover:text-amber-300 underline"
+          className="text-[#8C6518] hover:underline cursor-pointer"
         >
           Show Sponsor Slot
         </button>
@@ -29,22 +29,22 @@ export default function ReservedAdBanner({ position, className = "" }: ReservedA
 
   return (
     <div
-      className={`reserved-ad-slot-mobile w-full px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#0d122b]/95 via-[#161233]/95 to-[#0b1026]/95 border border-amber-500/40 shadow-lg flex items-center justify-between text-xs select-none transition-all ${className}`}
+      className={`reserved-ad-slot-mobile w-full px-3 py-1.5 rounded-xl bg-white border-2 border-[#D4AF37]/50 shadow-sm flex items-center justify-between text-xs select-none transition-all ${className}`}
       aria-label="Sponsored Space"
     >
       <div className="flex items-center gap-2 overflow-hidden">
-        <span className="px-1.5 py-0.5 rounded bg-amber-400 text-black font-extrabold text-[9px] uppercase tracking-wider flex items-center gap-1 shrink-0">
-          <Megaphone className="w-2.5 h-2.5" />
+        <span className="px-2 py-0.5 rounded-md gold-button text-black font-extrabold text-[9px] uppercase tracking-wider flex items-center gap-1 shrink-0">
+          <Megaphone className="w-2.5 h-2.5 text-black" />
           Ad • 5s
         </span>
-        <span className="text-amber-100 font-medium text-[11px] truncate">
-          Official StarBiz Sponsor Slot — Reserved for Ads
+        <span className="text-ink-navy font-semibold text-[11px] truncate">
+          Official StarBiz Sponsor Slot — Reserved for Ads (Zero CLS)
         </span>
       </div>
 
       <button
         onClick={() => setIsVisible(false)}
-        className="text-slate-400 hover:text-white p-1 ml-1 rounded transition shrink-0"
+        className="text-slate-400 hover:text-ink-navy p-1 ml-1 rounded transition shrink-0 cursor-pointer"
         title="Hide demo banner"
         aria-label="Dismiss banner"
       >

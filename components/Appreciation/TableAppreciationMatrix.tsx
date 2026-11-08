@@ -36,16 +36,16 @@ export default function TableAppreciationMatrix({ onOpenSiteCards }: TableApprec
   );
 
   return (
-    <div className="w-full rounded-2xl bg-gradient-to-b from-[#241a06] to-[#120e02] border-2 border-[#c89b3c]/60 p-4 sm:p-5 flex flex-col gap-3 shadow-lg">
+    <div className="w-full tabletop-card p-4 sm:p-5 flex flex-col gap-3 border-2 border-[#D4AF37]/70 shadow-parchment-card">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <TrendingUp className="w-4 h-4 text-[#ffd026]" />
-          <span className="font-orbitron font-extrabold text-xs text-amber-200 tracking-wider">
+          <TrendingUp className="w-4 h-4 text-[#8C6518]" />
+          <span className="font-orbitron font-extrabold text-xs text-ink-navy tracking-wider">
             MARKET APPRECIATION MATRIX
           </span>
         </div>
-        <span className="text-[10px] font-rajdhani font-bold px-2 py-0.5 rounded-full bg-slate-900 text-[#ffd026] border border-[#c89b3c]/40">
+        <span className="text-[10px] font-rajdhani font-black px-2 py-0.5 rounded-full gold-badge">
           DRAWS: {appreciationDrawCount} / 5 LIMIT
         </span>
       </div>
@@ -56,11 +56,11 @@ export default function TableAppreciationMatrix({ onOpenSiteCards }: TableApprec
         disabled={appreciationDrawCount >= 5}
         className={`w-full py-3 px-4 rounded-xl font-orbitron font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 select-none shadow-md cursor-pointer ${
           appreciationDrawCount >= 5
-            ? "bg-slate-800 text-slate-500 border border-slate-700 cursor-not-allowed"
-            : "bg-gradient-to-r from-[#d4af37] via-[#ffd026] to-[#d4af37] text-black border-2 border-yellow-300 hover:brightness-110 active:scale-98"
+            ? "bg-[#FAF5EA] text-slate-400 border border-[#E2D5C3] cursor-not-allowed"
+            : "gold-button cursor-pointer"
         }`}
       >
-        <Flame className="w-4 h-4 text-black animate-pulse" />
+        <Flame className="w-4 h-4 text-ink-navy animate-pulse" />
         <span>
           {appreciationDrawCount >= 5
             ? "MAX 5 BOOMS REACHED (10 STARS BOOMED)"
@@ -69,22 +69,22 @@ export default function TableAppreciationMatrix({ onOpenSiteCards }: TableApprec
       </button>
 
       {/* Active Boomed Properties HUD */}
-      <div className="p-3 rounded-xl bg-black/60 border border-amber-500/30">
+      <div className="p-3.5 rounded-xl bg-[#FAF5EA] border border-[#E2D5C3]">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-[10px] font-rajdhani font-black text-[#ffd026] uppercase tracking-wider flex items-center gap-1">
-            <Sparkles className="w-3 h-3 text-[#ffd026]" />
+          <span className="text-[10px] font-rajdhani font-black text-[#7A5712] uppercase tracking-wider flex items-center gap-1">
+            <Sparkles className="w-3.5 h-3.5 text-[#8C6518]" />
             Active Booms ({boomedProperties.length} Properties Elevated)
           </span>
           <button
             onClick={onOpenSiteCards}
-            className="text-[10px] font-rajdhani font-bold text-amber-300 hover:underline"
+            className="text-[11px] font-rajdhani font-black text-[#8C6518] hover:text-ink-navy underline cursor-pointer"
           >
             Inspect Leases ➔
           </button>
         </div>
 
         {boomedProperties.length === 0 ? (
-          <div className="text-center py-2 text-xs text-slate-400 font-rajdhani">
+          <div className="text-center py-2 text-xs text-slate-500 font-rajdhani">
             No star systems currently appreciated.
           </div>
         ) : (
@@ -94,16 +94,16 @@ export default function TableAppreciationMatrix({ onOpenSiteCards }: TableApprec
               return (
                 <div
                   key={prop.id}
-                  className="px-2.5 py-1 rounded-lg border flex items-center gap-1.5 text-xs font-rajdhani font-bold bg-[#0d1624] border-[#c89b3c]/50 text-slate-100 shadow-sm"
+                  className="px-2.5 py-1 rounded-lg border flex items-center gap-1.5 text-xs font-rajdhani font-bold bg-white border-[#E2D5C3] text-ink-navy shadow-sm"
                 >
                   <span
-                    className="w-2 h-2 rounded-full"
+                    className="w-2 h-2 rounded-full shrink-0"
                     style={{ backgroundColor: theme.color }}
                   />
                   <span>
                     #{prop.id} {prop.name}
                   </span>
-                  <span className="text-[10px] text-[#ffd026] font-orbitron font-black">
+                  <span className="text-[10px] text-[#8C6518] font-orbitron font-black bg-[#FFF6E0] px-1 rounded border border-[#D4AF37]/40">
                     +25%
                   </span>
                 </div>

@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#070817",
+  themeColor: "#FAF5EA",
   width: "device-width",
   initialScale: 1.0,
   maximumScale: 1.0,
@@ -56,9 +56,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${orbitron.variable} ${rajdhani.variable} ${inter.variable}`}
+      className={`${orbitron.variable} ${rajdhani.variable} ${inter.variable}`}
     >
-      <body className="min-h-screen w-full bg-[#04040c] text-slate-100 flex flex-col selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden">
+      <body className="min-h-screen w-full parchment-bg-texture text-ink-navy flex flex-col selection:bg-gold-light selection:text-ink-navy overflow-x-hidden">
         <ServiceWorkerRegister />
         {children}
       </body>
